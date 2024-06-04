@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Concepts</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.35;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header nav ul li a:hover {
+            color: #ffdf00;
+        }
+        .container {
+            padding: 5rem 1rem 2rem;
+            margin-top: 120px;
+        }
+        .concept {
+            margin-bottom: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            background-color: #fff;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .concept:hover {
+            transform: scale(1.02);
+        }
+        .concept h2 {
+            margin: 0;  
+            padding: 1rem;
+            background: #007bff;
+            color: #fff;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+        .concept h2:hover {
+            background: #0056b3;
+        }
+        .concept p {
+            padding: 1rem;
+            margin: 0;
+            display: none;
+        }
+        .concept:nth-child(odd) h2 {
+            background: #1370c1;
+        }
+        .concept:nth-child(odd) h2:hover {
+            background: #0f65b0;
+        }
+        .concept:nth-child(even) h2 {
+            background: #1370c1;
+        }
+        .concept:nth-child(even) h2:hover {
+            background: #0f65b0;
+        }
+        footer {
+            background: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Financial Tracer</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="financialconcepts.html">Financial Concepts</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div id="concept1" class="concept">
+            <h2 onclick="toggleContent(this)">Concept 1: Compound Interest</h2>
+            <p>Compound interest is the addition of interest to the principal sum of a loan or deposit, or in other words, interest on interest. It is the result of reinvesting interest rather than paying it out, so that interest in the next period is then earned on the principal sum plus previously accumulated interest.</p>
+        </div>
+        <div id="concept2" class="concept">
+            <h2 onclick="toggleContent(this)">Concept 2: Diversification</h2>
+            <p>Diversification is a risk management strategy that mixes a wide variety of investments within a portfolio. The rationale behind this technique is that a diversified portfolio will, on average, yield higher returns and pose a lower risk than any individual investment found within the portfolio.</p>
+        </div>
+        <div id="concept3" class="concept">
+            <h2 onclick="toggleContent(this)">Concept 3: Inflation</h2>
+            <p>Inflation is the rate at which the general level of prices for goods and services is rising, and subsequently, purchasing power is falling. Central banks attempt to limit inflation, and avoid deflation, in order to keep the economy running smoothly.</p>
+        </div>
+        <div id="concept4" class="concept">
+            <h2 onclick="toggleContent(this)">Concept 4: Asset Allocation</h2>
+            <p>Asset Allocation is an investment strategy that aims to balance risk and reward by apportioning a portfolio's assets according to an individual's goals, risk tolerance, and investment horizon. The three main asset classes—equities, fixed-income, and cash and equivalents—have different levels of risk and return, so each will behave differently over time.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Financial Concepts. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleContent(element) {
+            const content = element.nextElementSibling;
+            const isVisible = content.style.display === 'block';
+            document.querySelectorAll('.concept p').forEach(p => p.style.display = 'none');
+            if (!isVisible) {
+                content.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

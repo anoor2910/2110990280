@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Tracer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Financial Tracer</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="financialconcepts.html">Finanical Concepts</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <form class="salary-form" id="salaryForm">
+        <label for="salary">Salary (per month):</label>
+        <input type="number" class="salary-input" id="salary" name="salary" required><br>
+        <label for="expenses">Expenses (per month):</label>
+        <input type="number" class="salary-input" id="expenses" name="expenses" required><br>
+        <label for="duration">Duration of Job (in months):</label>
+        <input type="number" class="salary-input" id="duration" name="duration" required><br>
+        <button type="button" class="salary-button" onclick="calculateSalary()">Calculate Salary</button>
+    </form>
+    <div id="result"></div>
+
+    
+    
+    <footer>
+        <p>&copy; 2024 Financial Tracer. All rights reserved.</p>
+    </footer>
+    <script>
+        function calculateSalary() {
+            var salary = parseFloat(document.getElementById('salary').value);
+            var expense = parseFloat(document.getElementById('expenses').value);
+            var duration = parseInt(document.getElementById('duration').value);
+            var totalExpenses = expenses * duration;
+            // var savings = salary*duration-totalExpenses;
+            // var savings = salary-expenses;
+            // var abc = duration/12;
+            // while(abc>=1){
+            //     expenses = expenses+expenses*(4/100);
+            //     abc--;
+            // }
+            // duration--;
+            // console.log(savings);
+            // var month = 0;
+            // var count = 1;
+            // while(savings>=expenses){
+            //     if(duration>0){
+            //         duration--;
+            //         savings+=salary-expenses;
+            //     }
+            //     // if(count==12){
+            //     //     expenses = expenses+expenses*(4/100);
+            //     //     count = 1;
+            //     // }
+            //     else
+            //     {
+            //     savings-=expenses;
+            //     }
+            //     console.log(savings);
+            //     month++;
+            //     count++;
+            
+            // }
+var currentSalary = salary;
+var currentSaving = 0;
+var saving
+var inflation = 4/100;
+var raise = 5/100;
+while(duration >= 12)
+{
+	saving = (salary - expense) *12;
+	salary += salary*raise;
+	expense += expense*inflation;
+	duration -= 12;
+}
+
+if(duration != 0) {
+    saving = (salary - expense) * duration;
+}
+
+var count = 0;
+while(saving > 0) {
+	if(saving >= expense *12)
+    {
+    saving -= expense *12;
+	count += 12;
+	expense += expense*inflation;
+    }
+	else{while(saving > 0){
+	saving -= expense ;
+	count++;
+	}}
+	
+    }
+    if(saving < 0) {
+    saving += expense;
+    count--;
+    }  
+        document.getElementById('result').innerHTML = "Months Left: " + count +   "\nExpense Left: " + saving;
+        }
+    </script>
+</body>
+</html>
